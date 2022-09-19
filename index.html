@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expo Claude</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.js"></script>
+</head>
+<body>
+
+    
+    <a-scene stats>
+        
+        <a-assets>
+            <img id="photo1" src="assets/img/1x/Fichier 1.png">
+            <img id="photo2" src="assets/img/1x/Fichier 2.png">
+            <img id="photo3" src="assets/img/1x/Fichier 3.png">
+            <img id="photo4" src="assets/img/1x/Fichier 4.png">
+            <img id="photo5" src="assets/img/1x/Fichier 5.png">
+            <img id="photo6" src="assets/img/1x/Fichier 6.png">
+            <img id="photo7" src="assets/img/1x/Fichier 7.png">
+            <img id="photo8" src="assets/img/1x/Fichier 8.png">
+            <img id="photo9" src="assets/img/1x/Fichier 9.png">
+            <img id="photo10" src="assets/img/1x/Fichier 10.png">
+            <img id="photo11" src="assets/img/1x/Fichier 11.png">
+            <img id="photo12" src="assets/img/1x/Fichier 12.png">
+            <img id="photo13" src="assets/img/1x/Fichier 13.png">
+            <img id="photo14" src="assets/img/1x/Fichier 14.png">
+            <img id="photo15" src="assets/img/1x/Fichier 15.png">
+            <img id="photo16" src="assets/img/1x/Fichier 16.png">
+            <img id="texte" src="assets/img/1x/texte.png">
+            <img id="ciel" src="assets/img/DJI_0012.JPG">
+            <img id="floor" src="assets/img/floor.png">
+            <img id="checkpoint" src="assets/img/foot1.png">
+            <!-----------------------TELEPORTATION---------------------->
+            <audio id="teleport" src="assets/sounds/telep.mp3"></audio>
+        </a-assets>
+
+
+
+      <a-entity id="cam-rig" progressive-controls movement-controls >
+			
+			<a-camera id="cam" position="0 1.6 0" wasd-controls="enabled:false"></a-camera>>
+                                <!-- <a-cursor id="curseur" color="#000000"></a-cursor> -->
+			</a-camera>
+                        <!-------------------controlers------------------------------------>
+                        <a-entity>
+                                <a-entity super-hands 
+                                    laser-controls="hand: left" id="left-hand"
+                                    raycaster="objects: .teleport; far: 10" >
+                                </a-entity>
+                                <a-entity super-hands 
+                                    laser-controls="hand: right" id="right-hand"
+                                    raycaster="objects: .teleport; far: 10">
+                                </a-entity>
+                        </a-entity>
+			
+            </a-entity>
+
+                <a-sky color="grey"></a-sky>
+        
+        <a-plane src="#floor" width="100" height="100"
+            rotation="-90 0 0" repeat="100 100" transparent="true">
+        </a-plane>
+
+        <!--présentoir-->
+        <a-entity position="0 1.5 -1.5">
+
+            <!--photos de gauche-->
+            <a-image src="#photo1" position="-5 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo2" position="-3.8 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo3" position="-2.6 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo4" position="-1.4 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo5" position="-5 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo6" position="-3.8 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo7" position="-2.6 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo8" position="-1.4 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <!--texte-->
+            <a-image src="#texte" position="0 0 0"
+                width="1.44" height="2"></a-image>
+            <!--photos de droite-->
+            <a-image src="#photo15" position="1.25 0 0"
+                width="0.85" height="1.4"></a-image>
+            <a-image src="#photo16" position="2.3 0 0"
+                width="0.85" height="1.4"></a-image>
+
+            <a-image src="#photo9" position="3.5 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo10" position="4.7 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo11" position="5.9 0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo12" position="3.5 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo13" position="4.7 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+            <a-image src="#photo14" position="5.9 -0.5 0"
+                width="1.04" height="0.75"></a-image>
+
+
+        </a-entity>
+
+        <a-image src="#checkpoint" position="-5 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="-3.8 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="-2.6 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="-1.4 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="0 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="1.25 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="2.3 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="3.5 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="4.7 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+        <a-image src="#checkpoint" position="5.9 0.011 -0.5" rotation="90 0 0"
+            class="teleport" width="0.5" height="0.5" color="aqua" tel></a-image>
+
+    
+</a-scene>
+
+<script src="js/progressive-controls.js"></script>
+<script src="js/teleportation.js"></script>
+</body>
+</html>
